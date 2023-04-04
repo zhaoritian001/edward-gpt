@@ -6,6 +6,8 @@ import { useClipboard, useEventListener } from 'solidjs-use'
 import IconRefresh from './icons/Refresh'
 import type { Accessor } from 'solid-js'
 import type { ChatMessage } from '@/types'
+import boy from '../img/boy-4.svg'
+import robot from '../img/robot.svg'
 
 interface Props {
   role: ChatMessage['role']
@@ -73,9 +75,9 @@ export default ({ role, message, showRetry, onRetry }: Props) => {
       <div class="flex gap-3 rounded-lg" class:op-75={role === 'user'}>
         {/*<div class={`shrink-0 w-7 h-7 mt-4 rounded-full op-80 ${roleClass[role]}`} />*/}
         {
-            role === 'user' && <img w-10 h-10 src="../img/boy-4.svg" alt="" />
+            role === 'user' && <img shrink-0 w-7 h-7 mt-4 rounded-full op-80 bg-gradient-to-r src={boy} alt="" />
         }
-        { role === 'assistant' && <img w-10 h-10 src="../img/robot.svg" alt="" /> }
+        { role === 'assistant' && <img shrink-0 w-7 h-7 mt-4 rounded-full op-80 bg-gradient-to-r src={robot} alt="" /> }
         <div class="message prose break-words overflow-hidden" innerHTML={htmlString()} />
       </div>
       {showRetry?.() && onRetry && (
